@@ -7,7 +7,7 @@ class ResNetBlock(nn.Module):
         super().__init__()
 
         self.convolution_1 = nn.Conv2d(in_channels=in_channels, out_channels=out_channels, kernel_size=3, padding=1, device=device)
-        self.bn1 = nn.BatchNorm2d(num_features=in_channels, device=device)
+        self.bn1 = nn.BatchNorm2d(num_features=out_channels, device=device)
         self.relu1 = nn.ReLU()
 
         self.convolution_2 = nn.Conv2d(in_channels=out_channels, out_channels=out_channels, kernel_size=3, padding=1, device=device)
