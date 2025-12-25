@@ -1,1 +1,1 @@
-h
+![Ảnh ResNet](./resnet.png)
