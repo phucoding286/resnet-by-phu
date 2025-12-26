@@ -24,11 +24,11 @@ class ResNetBlock(nn.Module):
         x_skip = x.clone() # skip connection
 
         x = self.convolution_1(x)
-        x = self.bn1(x) # previous norm
+        x = self.bn1(x) # post norm
         x = self.relu1(x)
 
         x = self.convolution_2(x)
-        x = self.bn2(x) # previous norm
+        x = self.bn2(x) # post norm
 
         x_skip = self.x_skip_proj(x_skip) # project x_skip last dimension to x
 
@@ -39,3 +39,4 @@ if __name__ == "__main__":
     resnet = ResNetBlock(in_channels=3, out_channels=64, device=torch.device("cuda"))
     x = torch.rand(size=(2, 3, 512, 512), device=torch.device("cuda"))
     print(resnet(x))
+
